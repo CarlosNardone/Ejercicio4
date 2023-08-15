@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Carlos
  */
-public class BusquedaPorNombre extends javax.swing.JFrame {
+public class Test1 extends javax.swing.JFrame {
 private DefaultTableModel modelo = new DefaultTableModel();
 public boolean isCellEditable(int f, int c){
     return false;
@@ -19,7 +19,7 @@ public boolean isCellEditable(int f, int c){
     /**
      * Creates new form BusquedaPorNombre
      */
-    public BusquedaPorNombre() {
+    public Test1() {
         initComponents();
         armarCabecera();
     }
@@ -136,20 +136,21 @@ public boolean isCellEditable(int f, int c){
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(BusquedaPorNombre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(BusquedaPorNombre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(BusquedaPorNombre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(BusquedaPorNombre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Test1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new BusquedaPorNombre().setVisible(true);
+                new Test1().setVisible(true);
             }
         });
     }
