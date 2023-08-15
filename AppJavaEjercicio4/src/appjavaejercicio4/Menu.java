@@ -57,18 +57,8 @@ public class Menu extends javax.swing.JFrame {
         );
 
         jMenu1.setText("Administracion");
-        jMenu1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu1ActionPerformed(evt);
-            }
-        });
 
         jMenuItem1.setText("Productos");
-        jMenuItem1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jMenuItem1MouseClicked(evt);
-            }
-        });
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem1ActionPerformed(evt);
@@ -81,17 +71,17 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.setText("Consultas");
 
         jMenu3.setText("Por rublo...");
+        jMenu3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu3MouseClicked(evt);
+            }
+        });
         jMenu2.add(jMenu3);
 
         jMenu4.setText("Por nombre...");
         jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenu4MouseClicked(evt);
-            }
-        });
-        jMenu4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu4ActionPerformed(evt);
             }
         });
         jMenu2.add(jMenu4);
@@ -117,10 +107,6 @@ public class Menu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenu4ActionPerformed
-
     private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
         // TODO add your handling code here:
         escritorio.removeAll();
@@ -130,15 +116,6 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(bpn);
         escritorio.moveToFront(bpn);
     }//GEN-LAST:event_jMenu4MouseClicked
-
-    private void jMenuItem1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuItem1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem1MouseClicked
-
-    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jMenu1ActionPerformed
 
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
@@ -150,6 +127,17 @@ public class Menu extends javax.swing.JFrame {
         escritorio.moveToFront(gdp);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenu3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu3MouseClicked
+        // TODO add your handling code here:
+                escritorio.removeAll();
+        escritorio.repaint();
+        ConsultasPorRubro cpr = new ConsultasPorRubro();
+        cpr.setVisible(true);
+        escritorio.add(cpr);
+        escritorio.moveToFront(cpr);
+    }//GEN-LAST:event_jMenu3MouseClicked
+
+    
     /**
      * @param args the command line arguments
      */
