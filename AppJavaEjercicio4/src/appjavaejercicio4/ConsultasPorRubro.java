@@ -5,17 +5,23 @@
  */
 package appjavaejercicio4;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Carlos
  */
 public class ConsultasPorRubro extends javax.swing.JInternalFrame {
-
+private DefaultTableModel modelo = new DefaultTableModel();
+public boolean isCellEditable(int f, int c){
+    return false;
+};
     /**
      * Creates new form ConsultasPorRublo
      */
     public ConsultasPorRubro() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -99,4 +105,11 @@ public class ConsultasPorRubro extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jbcElegirRubro;
     private javax.swing.JTable jtTablaRubros;
     // End of variables declaration//GEN-END:variables
+        private void armarCabecera(){
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Stock");
+        jtTablaRubros.setModel(modelo);
+    }
 }

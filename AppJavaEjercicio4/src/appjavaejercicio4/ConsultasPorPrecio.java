@@ -5,17 +5,23 @@
  */
 package appjavaejercicio4;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Carlos
  */
 public class ConsultasPorPrecio extends javax.swing.JInternalFrame {
-
+private DefaultTableModel modelo = new DefaultTableModel();
+public boolean isCellEditable(int f, int c){
+    return false;
+};
     /**
      * Creates new form ConsultasPorPrecio
      */
     public ConsultasPorPrecio() {
         initComponents();
+        armarCabecera();
     }
 
     /**
@@ -111,4 +117,11 @@ public class ConsultasPorPrecio extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfPrecio1;
     private javax.swing.JTextField jtfPrecio2;
     // End of variables declaration//GEN-END:variables
+        private void armarCabecera(){
+        modelo.addColumn("Codigo");
+        modelo.addColumn("Descripcion");
+        modelo.addColumn("Precio");
+        modelo.addColumn("Stock");
+        jtPrecios.setModel(modelo);
+    }
 }
