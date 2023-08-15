@@ -87,6 +87,11 @@ public class Menu extends javax.swing.JFrame {
         jMenu2.add(jMenu4);
 
         jMenu5.setText("Por precio...");
+        jMenu5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu5MouseClicked(evt);
+            }
+        });
         jMenu2.add(jMenu5);
 
         jMenuBar1.add(jMenu2);
@@ -136,6 +141,16 @@ public class Menu extends javax.swing.JFrame {
         escritorio.add(cpr);
         escritorio.moveToFront(cpr);
     }//GEN-LAST:event_jMenu3MouseClicked
+
+    private void jMenu5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu5MouseClicked
+        // TODO add your handling code here:
+        escritorio.removeAll();
+        escritorio.repaint();
+        ConsultasPorPrecio cpp = new ConsultasPorPrecio();
+        cpp.setVisible(true);
+        escritorio.add(cpp);
+        escritorio.moveToFront(cpp);
+    }//GEN-LAST:event_jMenu5MouseClicked
 
     
     /**
