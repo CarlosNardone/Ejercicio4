@@ -12,7 +12,9 @@ import java.util.TreeSet;
  * @author Carlos
  */
 public class Menu extends javax.swing.JFrame {
-public static TreeSet<Producto> listaProductos = new TreeSet<>();
+
+    public static TreeSet<Producto> listaProductos = new TreeSet<>();
+
     /**
      * Creates new form Menu
      */
@@ -67,6 +69,11 @@ public static TreeSet<Producto> listaProductos = new TreeSet<>();
         jMenu2.add(jMenu3);
 
         jMenu4.setText("Por nombre...");
+        jMenu4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenu4MouseClicked(evt);
+            }
+        });
         jMenu4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu4ActionPerformed(evt);
@@ -97,13 +104,17 @@ public static TreeSet<Producto> listaProductos = new TreeSet<>();
 
     private void jMenu4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu4ActionPerformed
         // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu4ActionPerformed
+
+    private void jMenu4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenu4MouseClicked
+        // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
         BusquedaPorNombreView bpn = new BusquedaPorNombreView();
         bpn.setVisible(true);
         escritorio.add(bpn);
         escritorio.moveToFront(bpn);
-    }//GEN-LAST:event_jMenu4ActionPerformed
+    }//GEN-LAST:event_jMenu4MouseClicked
 
     /**
      * @param args the command line arguments
@@ -151,11 +162,10 @@ public static TreeSet<Producto> listaProductos = new TreeSet<>();
     private javax.swing.JMenuItem jMenuItem1;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarProductos(){
+    private void cargarProductos() {
         listaProductos.add(new Producto(10, "Azucar x 1 kg", 180.75, 5, Categoria.COMESTIBLE));
         listaProductos.add(new Producto(15, "Pan con queso", 200.10, 10, Categoria.COMESTIBLE));
         listaProductos.add(new Producto(20, "Detergente desengrasante", 250.5, 30, Categoria.LIMPIEZA));
     }
-    
-    
+
 }
