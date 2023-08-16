@@ -16,6 +16,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
      */
     public GestionDeProductos() {
         initComponents();
+        CargarCombo();
     }
 
     /**
@@ -37,7 +38,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         jtfPrecio = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jtfStock = new javax.swing.JTextField();
-        jcbRublo = new javax.swing.JComboBox<>();
+        jcbElegirRubro = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         jbNuevo = new javax.swing.JButton();
         jbGuardar = new javax.swing.JButton();
@@ -66,6 +67,12 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         });
 
         jLabel5.setText("Stock");
+
+        jcbElegirRubro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jcbElegirRubroActionPerformed(evt);
+            }
+        });
 
         jLabel6.setText("Rubro");
 
@@ -101,12 +108,12 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
                                 .addComponent(jbGuardar)
                                 .addGap(18, 18, 18)
                                 .addComponent(jbEliminar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                                 .addComponent(jbSalir))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jcbRublo, 0, 185, Short.MAX_VALUE)
+                                    .addComponent(jcbElegirRubro, 0, 185, Short.MAX_VALUE)
                                     .addComponent(jtfDescripcion)
                                     .addComponent(jtfStock, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jtfPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -143,9 +150,9 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
                     .addComponent(jtfPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jcbRublo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jcbElegirRubro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 23, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jtfStock, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -165,6 +172,12 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jtfPrecioActionPerformed
 
+    private void jcbElegirRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbElegirRubroActionPerformed
+        // TODO add your handling code here:
+        Categoria categoriaSeleccionada = (Categoria)jcbElegirRubro.getSelectedItem();
+    }//GEN-LAST:event_jcbElegirRubroActionPerformed
+
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -178,10 +191,16 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
     private javax.swing.JButton jbGuardar;
     private javax.swing.JButton jbNuevo;
     private javax.swing.JButton jbSalir;
-    private javax.swing.JComboBox<String> jcbRublo;
+    private javax.swing.JComboBox<Categoria> jcbElegirRubro;
     private javax.swing.JTextField jtfCodigo;
     private javax.swing.JTextField jtfDescripcion;
     private javax.swing.JTextField jtfPrecio;
     private javax.swing.JTextField jtfStock;
     // End of variables declaration//GEN-END:variables
+       private void CargarCombo(){
+           jcbElegirRubro.addItem(Categoria.LIMPIEZA);
+           jcbElegirRubro.addItem(Categoria.COMESTIBLE);
+           jcbElegirRubro.addItem(Categoria.PERFUMERIA);
+       }
+
 }

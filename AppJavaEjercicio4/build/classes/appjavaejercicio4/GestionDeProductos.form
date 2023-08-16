@@ -46,13 +46,13 @@
                               <Component id="jbGuardar" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jbEliminar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="52" max="32767" attributes="0"/>
+                              <EmptySpace pref="110" max="32767" attributes="0"/>
                               <Component id="jbSalir" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jcbRublo" pref="185" max="32767" attributes="0"/>
+                                  <Component id="jcbElegirRubro" pref="185" max="32767" attributes="0"/>
                                   <Component id="jtfDescripcion" max="32767" attributes="0"/>
                                   <Component id="jtfStock" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
                                   <Component id="jtfPrecio" alignment="0" min="-2" pref="52" max="-2" attributes="0"/>
@@ -102,10 +102,10 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jcbRublo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jcbElegirRubro" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="23" max="32767" attributes="0"/>
+              <EmptySpace pref="55" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jtfStock" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -173,14 +173,17 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jtfStock">
     </Component>
-    <Component class="javax.swing.JComboBox" name="jcbRublo">
+    <Component class="javax.swing.JComboBox" name="jcbElegirRubro">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
           <StringArray count="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jcbElegirRubroActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Categoria&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
