@@ -58,6 +58,12 @@ public boolean isCellEditable(int f, int c){
 
         jLabel3.setText("y");
 
+        jtfPrecio2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfPrecio2KeyReleased(evt);
+            }
+        });
+
         jtPrecios.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -115,12 +121,29 @@ public boolean isCellEditable(int f, int c){
 
     private void jtfPrecio1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfPrecio1KeyReleased
         // TODO add your handling code here:
-        for(Producto prod:Menu.listaProductos){
-            if(prod.getPrecio().startsWith(Double)(jtfPrecio1.getText())){
-                
+        eliminarFilas();
+            if(!(this.jtfPrecio1.getText().isEmpty()) && this.jtfPrecio2.getText().isEmpty()){
+               for(Producto prod:Menu.listaProductos){
+                 // if(prod.getPrecio() >= Double.valueOf.(this.jtfPrecio1.getText())){
+                 if (prod.getPrecio() >= Double.valueOf(this.jtfPrecio1.getText())) {
+                   modelo.addRow(new Object[]{prod.getCodigo(), prod.getDescripcion(), prod.getPrecio(), prod.getStock()});
+
+                  } 
             }
         }
+            if(!this.jtfPrecio1.getText().isEmpty() && !this.jtfPrecio2.getText().isEmpty()){
+                for(Producto prod: Menu.listaProductos){
+                    if(){
+                        
+                    }
+                }
+            }
     }//GEN-LAST:event_jtfPrecio1KeyReleased
+
+    private void jtfPrecio2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfPrecio2KeyReleased
+        // TODO add your handling code here:
+        eliminarFilas();
+    }//GEN-LAST:event_jtfPrecio2KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -139,4 +162,11 @@ public boolean isCellEditable(int f, int c){
         modelo.addColumn("Stock");
         jtPrecios.setModel(modelo);
     }
+        
+        private void eliminarFilas(){
+            while (modelo.getRowCount() > 0){
+                int i = modelo.getRowCount();
+                modelo.removeRow(i - 1);
+            }
+        }
 }
