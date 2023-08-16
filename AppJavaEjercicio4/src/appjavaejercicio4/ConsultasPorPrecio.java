@@ -50,6 +50,12 @@ public boolean isCellEditable(int f, int c){
 
         jLabel2.setText("Entre $");
 
+        jtfPrecio1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jtfPrecio1KeyReleased(evt);
+            }
+        });
+
         jLabel3.setText("y");
 
         jtPrecios.setModel(new javax.swing.table.DefaultTableModel(
@@ -106,6 +112,15 @@ public boolean isCellEditable(int f, int c){
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jtfPrecio1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfPrecio1KeyReleased
+        // TODO add your handling code here:
+        for(Producto prod:Menu.listaProductos){
+            if(prod.getPrecio().startsWith(Double)(jtfPrecio1.getText())){
+                
+            }
+        }
+    }//GEN-LAST:event_jtfPrecio1KeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
