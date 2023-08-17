@@ -207,7 +207,8 @@ public class Menu extends javax.swing.JFrame {
         listaProductos.add(new Producto(10, "Azucar x 1 kg", 180.75, 5, Categoria.COMESTIBLE));
         listaProductos.add(new Producto(15, "Pan con queso", 200.10, 10, Categoria.COMESTIBLE));
         listaProductos.add(new Producto(20, "Detergente desengrasante", 250.5, 30, Categoria.LIMPIEZA));
-        listaProductos.add(new Producto(20, "Perfume de lavanda", 300.5, 45, Categoria.PERFUMERIA));
+        listaProductos.add(new Producto(25, "Perfume de lavanda", 300.5, 45, Categoria.PERFUMERIA));
+        listaProductos.add(new Producto(30, "Desororante Axe", 400.10, 50, Categoria.PERFUMERIA));
     }
 
 }
