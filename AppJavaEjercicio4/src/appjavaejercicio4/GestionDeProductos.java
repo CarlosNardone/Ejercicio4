@@ -5,6 +5,8 @@
  */
 package appjavaejercicio4;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Carlos
@@ -59,24 +61,49 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         jLabel4.setText("Precio");
 
         jbBusqueda.setIcon(new javax.swing.ImageIcon("C:\\Users\\Carlos\\Documents\\Argentina Programar 4.0\\Desarrollo Aplicaciones en Java\\Encuentro 4 al 10\\Ejercicio4\\AppJavaEjercicio4\\src\\main\\resources\\images\\simple-magnifying-icon-png.png")); // NOI18N
+        jbBusqueda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbBusquedaActionPerformed(evt);
+            }
+        });
+
+        jtfDescripcion.setEditable(false);
+
+        jtfPrecio.setEditable(false);
 
         jLabel5.setText("Stock");
 
-        jcbElegirRubro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jcbElegirRubroActionPerformed(evt);
-            }
-        });
+        jtfStock.setEditable(false);
 
         jLabel6.setText("Rubro");
 
         jbNuevo.setText("Nuevo");
+        jbNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbNuevoActionPerformed(evt);
+            }
+        });
 
         jbGuardar.setText("Guardar");
+        jbGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbGuardarActionPerformed(evt);
+            }
+        });
 
         jbEliminar.setText("Eliminar");
+        jbEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbEliminarActionPerformed(evt);
+            }
+        });
 
         jbSalir.setText("Salir");
+        jbSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jbSalirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -102,7 +129,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
                                 .addComponent(jbGuardar)
                                 .addGap(18, 18, 18)
                                 .addComponent(jbEliminar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 110, Short.MAX_VALUE)
                                 .addComponent(jbSalir))
                             .addGroup(layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -116,8 +143,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
                                 .addGap(4, 4, 4)
                                 .addComponent(jtfCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(100, 100, 100)
-                                .addComponent(jbBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                .addComponent(jbBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
                         .addComponent(jLabel2)
@@ -163,10 +189,40 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jcbElegirRubroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcbElegirRubroActionPerformed
+    private void jbBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBusquedaActionPerformed
         // TODO add your handling code here:
-        Categoria categoriaSeleccionada = (Categoria)jcbElegirRubro.getSelectedItem();
-    }//GEN-LAST:event_jcbElegirRubroActionPerformed
+        int codigo = Integer.parseInt(jtfCodigo.getText());
+        for (Producto prod: Menu.listaProductos){
+            if(prod.getCodigo()==codigo){
+                jtfDescripcion.setText(prod.getDescripcion());
+                jtfPrecio.setText(prod.getPrecio()+"");
+                jtfStock.setText(prod.getStock()+"");
+                jcbElegirRubro.setSelectedItem(prod.getRubro());
+                return;
+            }
+        }
+        JOptionPane.showMessageDialog(this, "No existe este producto");
+    }//GEN-LAST:event_jbBusquedaActionPerformed
+
+    private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbNuevoActionPerformed
+
+    private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbGuardarActionPerformed
+
+    private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
+        // TODO add your handling code here:
+        jtfCodigo.setText("");
+        jtfDescripcion.setText("");
+        jtfPrecio.setText("");
+        jtfStock.setText("");
+    }//GEN-LAST:event_jbEliminarActionPerformed
+
+    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jbSalirActionPerformed
 
     
 
