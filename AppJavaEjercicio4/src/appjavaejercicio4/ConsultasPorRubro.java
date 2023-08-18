@@ -106,7 +106,7 @@ public boolean isCellEditable(int f, int c){
          eliminarFilas();
         for (Producto prod : Menu.listaProductos) {
 
-            if (prod.getRublo().equals(jcbElegirRubro.getSelectedItem())) {
+            if (prod.getRubro().equals(jcbElegirRubro.getSelectedItem())) {
 
                 modelo.addRow(new Object[]{
                     prod.getCodigo(),
@@ -140,7 +140,7 @@ public boolean isCellEditable(int f, int c){
                 modelo.addRow(new Object[]{prod.getCodigo(),
                 prod.getDescripcion(), prod.getPrecio(),
                 prod.getStock(),
-                prod.getRublo()});
+                prod.getRubro()});
             }
         }
         

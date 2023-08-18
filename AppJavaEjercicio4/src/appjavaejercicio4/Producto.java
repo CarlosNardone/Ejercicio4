@@ -20,14 +20,14 @@ public class Producto implements Comparable<Producto> {
     private String descripcion;
     private double precio;
     private int stock;
-    private Categoria rublo;
+    private Categoria rubro;
 
-    public Producto(int codigo, String descripcion, double precio, int stock, Categoria rublo) {
+    public Producto(int codigo, String descripcion, double precio, int stock, Categoria rubro) {
         this.codigo = codigo;
         this.descripcion = descripcion;
         this.precio = precio;
         this.stock = stock;
-        this.rublo = rublo;
+        this.rubro = rubro;
     }
 
     public int getCodigo() {
@@ -62,12 +62,12 @@ public class Producto implements Comparable<Producto> {
         this.stock = stock;
     }
 
-    public Categoria getRublo() {
-        return rublo;
+    public Categoria getRubro() {
+        return rubro;
     }
 
-    public void setRublo(Categoria rublo) {
-        this.rublo = rublo;
+    public void setRublo(Categoria rubro) {
+        this.rubro = rubro;
     }
 
     @Override
@@ -83,7 +83,7 @@ public class Producto implements Comparable<Producto> {
 
     @Override
     public String toString() {
-        return  codigo  + descripcion  + precio  + stock  + rublo ;
+        return  codigo  + descripcion  + precio  + stock  + rubro ;
     }
     
     
