@@ -47,8 +47,6 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         jbEliminar = new javax.swing.JButton();
         jbSalir = new javax.swing.JButton();
 
-        setClosable(true);
-
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
@@ -191,6 +189,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
     private void jbBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBusquedaActionPerformed
         // TODO add your handling code here:
+        try{
         int codigo = Integer.parseInt(jtfCodigo.getText());
         for (Producto prod: Menu.listaProductos){
             if(prod.getCodigo()==codigo){
@@ -201,11 +200,18 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
                 return;
             }
         }
+        }catch(NumberFormatException nf){
+            JOptionPane.showMessageDialog(this, "Solo puede ingresar Numeros Enteros");
+        }
         JOptionPane.showMessageDialog(this, "No existe este producto");
     }//GEN-LAST:event_jbBusquedaActionPerformed
 
     private void jbNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbNuevoActionPerformed
         // TODO add your handling code here:
+                jtfCodigo.setText("");
+        jtfDescripcion.setText("");
+        jtfPrecio.setText("");
+        jtfStock.setText("");
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
@@ -214,10 +220,6 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
-        jtfCodigo.setText("");
-        jtfDescripcion.setText("");
-        jtfPrecio.setText("");
-        jtfStock.setText("");
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
