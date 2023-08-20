@@ -217,19 +217,18 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-       // JOptionPane.showMessageDialog(this, "Guardado en el carrito de compras!");
+       
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
-        //JOptionPane.showMessageDialog(this, "Producto eliminado del carrito!");
+        
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
-        this.dispose();
-        System.exit(0);
-        //JOptionPane.showMessageDialog(this, "Saliendo... Esperamos que haya disfrutado de su compra...!!");
+//        this.dispose();
+//        System.exit(0);
     }//GEN-LAST:event_jbSalirActionPerformed
 
     
