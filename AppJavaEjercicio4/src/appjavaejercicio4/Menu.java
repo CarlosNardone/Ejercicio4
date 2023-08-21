@@ -3,6 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+//hola soy sabri                               
 package appjavaejercicio4;
 
 import java.util.TreeSet;
@@ -209,6 +210,7 @@ public class Menu extends javax.swing.JFrame {
         listaProductos.add(new Producto(20, "Detergente desengrasante", 250.5, 30, Categoria.LIMPIEZA));
         listaProductos.add(new Producto(25, "Perfume de lavanda", 300.5, 45, Categoria.PERFUMERIA));
         listaProductos.add(new Producto(30, "Desororante Axe", 400.10, 50, Categoria.PERFUMERIA));
+        listaProductos.add(new Producto(31, "Shampoo", 600.10, 60, Categoria.PERFUMERIA));
     }
 
 }
