@@ -13,10 +13,14 @@ import javax.swing.table.DefaultTableModel;
  * @author Carlos
  */
 public class ConsultasPorPrecio extends javax.swing.JInternalFrame {
-private DefaultTableModel modelo = new DefaultTableModel();
-public boolean isCellEditable(int f, int c){
-    return false;
-};
+
+    private DefaultTableModel modelo = new DefaultTableModel();
+
+    public boolean isCellEditable(int f, int c) {
+        return false;
+    }
+
+    ;
     /**
      * Creates new form ConsultasPorPrecio
      */
@@ -123,64 +127,70 @@ public boolean isCellEditable(int f, int c){
     private void jtfPrecio1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfPrecio1KeyReleased
         // TODO add your handling code here:
         eliminarFilas();
-        try{
-            if(!(this.jtfPrecio1.getText().isEmpty()) 
-                    && this.jtfPrecio2.getText().isEmpty()){//Buscara el minimo
-               for(Producto prod:Menu.listaProductos){
-                 // if(prod.getPrecio() >= Double.valueOf.(this.jtfPrecio1.getText())){
-                 if (prod.getPrecio() >= Double.valueOf(this.jtfPrecio1.getText())) {
-                   modelo.addRow(new Object[]{prod.getCodigo(), 
-                       prod.getDescripcion(), prod.getPrecio(), 
-                       prod.getStock()});
-
-                  } 
-            }
-        }
-            if(!this.jtfPrecio1.getText().isEmpty() 
-                    && !this.jtfPrecio2.getText().isEmpty()){ //Buscara entre valores
-                for(Producto prod: Menu.listaProductos){
-                    if(prod.getPrecio() >= Double.valueOf(this.jtfPrecio1.getText()) 
-                            && prod.getPrecio() <= Double.valueOf(this.jtfPrecio2.getText())){
-                        modelo.addRow(new Object[]{prod.getCodigo(),
-                            prod.getDescripcion(), prod.getPrecio(),
-                        prod.getStock()});
-                    }
-                }
-            }
-        }catch (NumberFormatException nf){
-            JOptionPane.showMessageDialog(this, "Solo debe introducir los numeros entre los precios");
-        }
+        
+//        try {
+//            if (!(this.jtfPrecio1.getText().isEmpty())
+//                    && this.jtfPrecio2.getText().isEmpty()) {//Buscara el minimo
+//                for (Producto prod : Menu.listaProductos) {
+//                    if (prod.getPrecio() >= Double.valueOf(this.jtfPrecio1.getText())) {
+//                        //if (prod.getPrecio() >= Double.valueOf(this.jtfPrecio1.getText())) {
+//                        modelo.addRow(new Object[]{prod.getCodigo(),
+//                            prod.getDescripcion(), prod.getPrecio(),
+//                            prod.getStock()});
+//                    } else {
+//                        JOptionPane.showMessageDialog(this, "Hay campos vacios");
+//                        return;
+//                    }
+//
+//                }
+//            }
+//            if(!this.jtfPrecio1.getText().isEmpty() 
+//                    && !this.jtfPrecio2.getText().isEmpty()){ //Buscara entre valores
+//                for(Producto prod: Menu.listaProductos){
+//                    if(prod.getPrecio() >= Double.valueOf(this.jtfPrecio1.getText()) 
+//                            && prod.getPrecio() <= Double.valueOf(this.jtfPrecio2.getText())){
+//                        modelo.addRow(new Object[]{prod.getCodigo(),
+//                            prod.getDescripcion(), prod.getPrecio(),
+//                        prod.getStock()});
+//                    }
+//                }
+//            }
+//        } catch (NumberFormatException nf) {
+//            JOptionPane.showMessageDialog(this, "Solo debe introducir los numeros entre los precios");
+//        }
     }//GEN-LAST:event_jtfPrecio1KeyReleased
 
     private void jtfPrecio2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jtfPrecio2KeyReleased
         // TODO add your handling code here:
         eliminarFilas();
-        try{
-        if(!(this.jtfPrecio2.getText().isEmpty()) 
-                && this.jtfPrecio1.getText().isEmpty()){ //Buscara el maximo
-           for(Producto prod:Menu.listaProductos){
-               if(prod.getPrecio()<= Double.valueOf(this.jtfPrecio2.getText())){
-                   modelo.addRow(new Object[] {prod.getCodigo(),
-                       prod.getDescripcion(), prod.getPrecio(), 
-                       prod.getStock()});
-               }
-           } 
-        }
-        
-        if(!(this.jtfPrecio2.getText().isEmpty() 
-                && this.jtfPrecio1.getText().isEmpty())){ //Buscara entre valores
-            for(Producto prod:Menu.listaProductos){
-                if(prod.getPrecio() >= Double.valueOf(this.jtfPrecio1.getText())
-                         && prod.getPrecio() <= Double.valueOf(this.jtfPrecio2.getText())){
-                    modelo.addRow(new Object[]{prod.getCodigo(),
-                       prod.getDescripcion(), prod.getPrecio(), 
-                       prod.getStock()});
-                }
-            }
-        }
-        }catch(NumberFormatException nf){
-            JOptionPane.showMessageDialog(this, "Solo debe introducir los numeros entre los precios");
-        }
+//        try {
+//            if (!(this.jtfPrecio2.getText().isEmpty())&& this.jtfPrecio1.getText().isEmpty()) { //Buscara el maximo
+//                for (Producto prod : Menu.listaProductos) {
+//                    if (prod.getPrecio() <= Double.valueOf(this.jtfPrecio2.getText())) {
+//                        modelo.addRow(new Object[]{prod.getCodigo(),
+//                            prod.getDescripcion(), prod.getPrecio(),
+//                            prod.getStock()});
+//                    } else {
+//                        JOptionPane.showMessageDialog(this, "Hay campos vacios");
+//                        return;
+//                    }
+//                }
+//            }
+//
+////        if(!(this.jtfPrecio2.getText().isEmpty() 
+////                && this.jtfPrecio1.getText().isEmpty())){ //Buscara entre valores
+////            for(Producto prod:Menu.listaProductos){
+////                if(prod.getPrecio() >= Double.valueOf(this.jtfPrecio1.getText())
+////                         && prod.getPrecio() <= Double.valueOf(this.jtfPrecio2.getText())){
+////                    modelo.addRow(new Object[]{prod.getCodigo(),
+////                       prod.getDescripcion(), prod.getPrecio(), 
+////                       prod.getStock()});
+////                }
+////            }
+////        }
+//        } catch (NumberFormatException nf) {
+//            JOptionPane.showMessageDialog(this, "Solo debe introducir los numeros entre los precios");
+//        }
     }//GEN-LAST:event_jtfPrecio2KeyReleased
 
 
@@ -193,18 +203,18 @@ public boolean isCellEditable(int f, int c){
     private javax.swing.JTextField jtfPrecio1;
     private javax.swing.JTextField jtfPrecio2;
     // End of variables declaration//GEN-END:variables
-        private void armarCabecera(){
+        private void armarCabecera() {
         modelo.addColumn("Codigo");
         modelo.addColumn("Descripcion");
         modelo.addColumn("Precio");
         modelo.addColumn("Stock");
         jtPrecios.setModel(modelo);
     }
-        
-        private void eliminarFilas(){
-            while (modelo.getRowCount() > 0){
-                int i = modelo.getRowCount();
-                modelo.removeRow(i - 1);
-            }
+
+    private void eliminarFilas() {
+        while (modelo.getRowCount() > 0) {
+            int i = modelo.getRowCount();
+            modelo.removeRow(i - 1);
         }
+    }
 }

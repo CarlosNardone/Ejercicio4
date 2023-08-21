@@ -18,7 +18,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
      */
     public GestionDeProductos() {
         initComponents();
-        CargarCombo();
+        
     }
 
     /**
@@ -48,6 +48,8 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         jbSalir = new javax.swing.JButton();
 
         setClosable(true);
+        setMaximizable(true);
+        setResizable(true);
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
@@ -194,6 +196,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         int codigo = Integer.parseInt(jtfCodigo.getText());
         for (Producto prod: Menu.listaProductos){
             if(prod.getCodigo()==codigo){
+                CargarCombo();
                 jtfDescripcion.setText(prod.getDescripcion());
                 jtfPrecio.setText(prod.getPrecio()+"");
                 jtfStock.setText(prod.getStock()+"");
@@ -222,13 +225,17 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
+        jtfCodigo.setText("");
+        jtfDescripcion.setText("");
+        jtfPrecio.setText("");
+        jtfStock.setText("");
         
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
-//        this.dispose();
-//        System.exit(0);
+        this.dispose();
+       // System.exit(0);
     }//GEN-LAST:event_jbSalirActionPerformed
 
     
