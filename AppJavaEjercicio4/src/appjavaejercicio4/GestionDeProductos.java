@@ -220,15 +220,58 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-       
+               try{
+            for (Producto prod:Menu.listaProductos){
+                if(Integer.parseInt(jtfCodigo.getText())==prod.getCodigo()){
+                    prod.setDescripcion(jtfDescripcion.getText());
+                    prod.setPrecio(Double.parseDouble(jtfPrecio.getText()));
+                    prod.setRublo((Categoria)jcbElegirRubro.getSelectedItem());
+                    prod.setStock(Integer.parseInt(jtfStock.getText()));
+                    JOptionPane.showMessageDialog(this, "Articulo guardado en el carrito de compras! Codigo del articulo: "+prod.getCodigo());
+                    return;
+                }
+                else{
+                    Menu.listaProductos.add(new Producto(Integer.parseInt(jtfCodigo.getText()),
+                            jtfPrecio.getText(), Double.parseDouble(jtfPrecio.getText()),
+                            Integer.parseInt(jtfStock.getText()),(Categoria)jcbElegirRubro.getSelectedItem()));
+                    JOptionPane.showMessageDialog(this, "Articulo guardado en el carrito de compras! Codigo del articulo: "+prod.getCodigo());
+                    return;
+                }
+            }
+        }
+        catch(java.lang.NumberFormatException ex)
+        {
+            System.out.println(ex.toString());
+            JOptionPane.showMessageDialog(this, "El codigo debe ser de tipo numerico no caracteres");
+            jtfCodigo.setText("");
+        }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
-        jtfCodigo.setText("");
-        jtfDescripcion.setText("");
-        jtfPrecio.setText("");
-        jtfStock.setText("");
+
+                try{
+            for (Producto prod:Menu.listaProductos){
+                if(prod.getCodigo()==Integer.parseInt(jtfCodigo.getText())){
+                    int input = JOptionPane.showConfirmDialog(this, "¿Desea eliminar "+prod.getDescripcion()+"?",
+                            "¿Estas seguro?",JOptionPane.OK_CANCEL_OPTION);
+                    if(input==2)
+                        return;
+                    else{
+                    JOptionPane.showMessageDialog(this, prod.getDescripcion()+" Eliminado con exito");
+                    Menu.listaProductos.remove(prod);
+                    return;
+                    }
+                }
+            }
+            JOptionPane.showMessageDialog(this, "El codigo introducido no se encuentra almacenado en nuestra lista de productos");
+
+        }
+        catch(java.lang.NumberFormatException ex)
+        {
+            JOptionPane.showMessageDialog(this, "El codigo introducido debe ser de tipo numerico");
+            jtfCodigo.setText("");
+        }
         
     }//GEN-LAST:event_jbEliminarActionPerformed
 
