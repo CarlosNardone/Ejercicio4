@@ -5,6 +5,8 @@
  */
 package appjavaejercicio4;
 
+import static appjavaejercicio4.Menu.listaProductos;
+import java.util.TreeSet;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,12 +15,16 @@ import javax.swing.JOptionPane;
  */
 public class GestionDeProductos extends javax.swing.JInternalFrame {
 
+    private TreeSet<Producto> listaProductos;
+
     /**
      * Creates new form GestionDeProductos
      */
-    public GestionDeProductos() {
+    public GestionDeProductos(TreeSet<Producto> listaProductos) {
         initComponents();
-        
+        CargarCombo();
+        this.listaProductos = listaProductos;
+
     }
 
     /**
@@ -69,13 +75,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
             }
         });
 
-        jtfDescripcion.setEditable(false);
-
-        jtfPrecio.setEditable(false);
-
         jLabel5.setText("Stock");
-
-        jtfStock.setEditable(false);
 
         jLabel6.setText("Rubro");
 
@@ -192,19 +192,19 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
     private void jbBusquedaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbBusquedaActionPerformed
         // TODO add your handling code here:
-        try{
-        int codigo = Integer.parseInt(jtfCodigo.getText());
-        for (Producto prod: Menu.listaProductos){
-            if(prod.getCodigo()==codigo){
-                CargarCombo();
-                jtfDescripcion.setText(prod.getDescripcion());
-                jtfPrecio.setText(prod.getPrecio()+"");
-                jtfStock.setText(prod.getStock()+"");
-                jcbElegirRubro.setSelectedItem(prod.getRubro());
-                return;
+        try {
+            int codigo = Integer.parseInt(jtfCodigo.getText());
+            for (Producto prod : Menu.listaProductos) {
+                if (prod.getCodigo() == codigo) {
+                    CargarCombo();
+                    jtfDescripcion.setText(prod.getDescripcion());
+                    jtfPrecio.setText(prod.getPrecio() + "");
+                    jtfStock.setText(prod.getStock() + "");
+                    jcbElegirRubro.setSelectedItem(prod.getRubro());
+                    return;
+                }
             }
-        }
-        }catch(NumberFormatException nf){
+        } catch (NumberFormatException nf) {
             JOptionPane.showMessageDialog(this, "Solo puede ingresar Numeros Enteros");
         }
         JOptionPane.showMessageDialog(this, "No existe este producto");
@@ -220,68 +220,58 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
         // TODO add your handling code here:
-               try{
-            for (Producto prod:Menu.listaProductos){
-                if(Integer.parseInt(jtfCodigo.getText())==prod.getCodigo()){
-                    prod.setDescripcion(jtfDescripcion.getText());
-                    prod.setPrecio(Double.parseDouble(jtfPrecio.getText()));
-                    prod.setRublo((Categoria)jcbElegirRubro.getSelectedItem());
-                    prod.setStock(Integer.parseInt(jtfStock.getText()));
-                    JOptionPane.showMessageDialog(this, "Articulo guardado en el carrito de compras! Codigo del articulo: "+prod.getCodigo());
-                    return;
-                }
-                else{
-                    Menu.listaProductos.add(new Producto(Integer.parseInt(jtfCodigo.getText()),
-                            jtfPrecio.getText(), Double.parseDouble(jtfPrecio.getText()),
-                            Integer.parseInt(jtfStock.getText()),(Categoria)jcbElegirRubro.getSelectedItem()));
-                    JOptionPane.showMessageDialog(this, "Articulo guardado en el carrito de compras! Codigo del articulo: "+prod.getCodigo());
-                    return;
-                }
-            }
-        }
-        catch(java.lang.NumberFormatException ex)
-        {
-            System.out.println(ex.toString());
-            JOptionPane.showMessageDialog(this, "El codigo debe ser de tipo numerico no caracteres");
-            jtfCodigo.setText("");
+
+        try{
+        int codigo = Integer.parseInt(jtfCodigo.getText());
+        String descripcion = jtfDescripcion.getText();
+        double precio = Double.parseDouble(jtfPrecio.getText());
+        Categoria rubro = (Categoria) jcbElegirRubro.getSelectedItem();
+        int stock = Integer.parseInt(jtfStock.getText());
+
+        Producto prod = new Producto(codigo, descripcion, precio, stock, rubro);
+        listaProductos.add(prod);
+        JOptionPane.showMessageDialog(this, "Producto Guardado!");
+        }catch(NumberFormatException ex){
+            JOptionPane.showMessageDialog(this, "Solo puedes poner numeros en los campos numericos. ");
         }
     }//GEN-LAST:event_jbGuardarActionPerformed
 
     private void jbEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbEliminarActionPerformed
         // TODO add your handling code here:
 
-                try{
-            for (Producto prod:Menu.listaProductos){
-                if(prod.getCodigo()==Integer.parseInt(jtfCodigo.getText())){
-                    int input = JOptionPane.showConfirmDialog(this, "¿Desea eliminar "+prod.getDescripcion()+"?",
-                            "¿Estas seguro?",JOptionPane.OK_CANCEL_OPTION);
-                    if(input==2)
+        try {
+            for (Producto prod : Menu.listaProductos) {
+                if (prod.getCodigo() == Integer.parseInt(jtfCodigo.getText())) {
+                    int input = JOptionPane.showConfirmDialog(this, "¿Desea eliminar " + prod.getDescripcion() + "?",
+                            "¿Estas seguro?", JOptionPane.OK_CANCEL_OPTION);
+                    if (input == 2) {
                         return;
-                    else{
-                    JOptionPane.showMessageDialog(this, prod.getDescripcion()+" Eliminado con exito");
-                    Menu.listaProductos.remove(prod);
-                    return;
+                    } else {
+                        JOptionPane.showMessageDialog(this, prod.getDescripcion() + " Eliminado con exito");
+                        Menu.listaProductos.remove(prod);
+                        jtfCodigo.setText("");
+                        jtfDescripcion.setText("");
+                        jtfPrecio.setText("");
+                        jtfStock.setText("");
+                        return;
                     }
                 }
             }
             JOptionPane.showMessageDialog(this, "El codigo introducido no se encuentra almacenado en nuestra lista de productos");
 
-        }
-        catch(java.lang.NumberFormatException ex)
-        {
+        } catch (java.lang.NumberFormatException ex) {
             JOptionPane.showMessageDialog(this, "El codigo introducido debe ser de tipo numerico");
             jtfCodigo.setText("");
         }
-        
+
     }//GEN-LAST:event_jbEliminarActionPerformed
 
     private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
         // TODO add your handling code here:
         this.dispose();
-       // System.exit(0);
+        // System.exit(0);
     }//GEN-LAST:event_jbSalirActionPerformed
 
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -301,10 +291,10 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jtfPrecio;
     private javax.swing.JTextField jtfStock;
     // End of variables declaration//GEN-END:variables
-       private void CargarCombo(){
-           jcbElegirRubro.addItem(Categoria.LIMPIEZA);
-           jcbElegirRubro.addItem(Categoria.COMESTIBLE);
-           jcbElegirRubro.addItem(Categoria.PERFUMERIA);
-       }
+       private void CargarCombo() {
+        jcbElegirRubro.addItem(Categoria.LIMPIEZA);
+        jcbElegirRubro.addItem(Categoria.COMESTIBLE);
+        jcbElegirRubro.addItem(Categoria.PERFUMERIA);
+    }
 
 }

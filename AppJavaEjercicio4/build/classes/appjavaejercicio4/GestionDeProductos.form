@@ -166,14 +166,8 @@
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfDescripcion">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfPrecio">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -181,9 +175,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jtfStock">
-      <Properties>
-        <Property name="editable" type="boolean" value="false"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JComboBox" name="jcbElegirRubro">
       <Properties>

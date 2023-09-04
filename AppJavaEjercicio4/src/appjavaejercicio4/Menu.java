@@ -131,7 +131,7 @@ public class Menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         escritorio.removeAll();
         escritorio.repaint();
-        GestionDeProductos gdp = new GestionDeProductos();
+        GestionDeProductos gdp = new GestionDeProductos(listaProductos);
         gdp.setVisible(true);
         escritorio.add(gdp);
         escritorio.moveToFront(gdp);
