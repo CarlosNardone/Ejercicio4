@@ -68,7 +68,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Precio");
 
-        jbBusqueda.setIcon(new javax.swing.ImageIcon("C:\\Users\\Carlos\\Documents\\Argentina Programar 4.0\\Desarrollo Aplicaciones en Java\\Encuentro 4 al 10\\Ejercicio4\\AppJavaEjercicio4\\src\\main\\resources\\images\\simple-magnifying-icon-png.png")); // NOI18N
+        jbBusqueda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/appjavaejercicio4/simple-magnifying-icon-png.png"))); // NOI18N
         jbBusqueda.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jbBusquedaActionPerformed(evt);
@@ -216,6 +216,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
         jtfDescripcion.setText("");
         jtfPrecio.setText("");
         jtfStock.setText("");
+        jcbElegirRubro.setSelectedIndex(0);
     }//GEN-LAST:event_jbNuevoActionPerformed
 
     private void jbGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbGuardarActionPerformed
