@@ -196,7 +196,7 @@ public class GestionDeProductos extends javax.swing.JInternalFrame {
             int codigo = Integer.parseInt(jtfCodigo.getText());
             for (Producto prod : Menu.listaProductos) {
                 if (prod.getCodigo() == codigo) {
-                    CargarCombo();
+                    //CargarCombo();
                     jtfDescripcion.setText(prod.getDescripcion());
                     jtfPrecio.setText(prod.getPrecio() + "");
                     jtfStock.setText(prod.getStock() + "");
